@@ -41,7 +41,7 @@ The test suite includes the following scenarios:
    - Searches for celebrities born exactly 40 years ago
    - Takes screenshots of results
 
-## Setup and Running IMDbTests
+### Setup and Running IMDb Tests
 1. Clone the repository:
    ```bash
    git clone [repository-url]
@@ -89,6 +89,38 @@ Note: Screenshots from the tests will be saved in the `cypress/screenshots` dire
 
 ## Pokeapi test automation project
 
+The test suite includes the following scenarios:
+
+1. **Get berry using valid id**
+   - Get berry using valid id
+   - Verify that the response status is 200
+   - Verify that the response contains the correct berry id
+
+2. **Get pokemon by invalid id**
+   - Get berry by invalid id
+   - Verify that the response status is 404
+
+3. **Get berry by valid name**
+   - Get berry by valid name
+   - Verify that the response status is 200
+   - Verify that the response contains the correct berry name
+
+4. **Get berry by invalid name**
+   - Get berry by invalid name
+   - Verify that the response status is 404
+
+5. **Get valid berry flavor by name**
+   - Get valid berry flavor by name
+   - Verify that the response status is 200
+   - Verify that the response contains the correct berry flavor name
+
+6. **Get berry with the highest potency for a specific flavor**
+   - Get berry with the highest potency for a specific flavor
+   - Verify that the response status is 200
+   - Verify that the response contains the correct berry name
+
+
+### Setup and Running Pokeapi Tests
 1. Clone the repository:
    ```bash
    git clone [repository-url]
@@ -116,3 +148,9 @@ Note: Screenshots from the tests will be saved in the `cypress/screenshots` dire
    ```bash
    npm run cy:pokeapi:chrome
    ```
+
+## Manual tests
+Manual tests are written in Gherkin language and are located in the `manual-tests.md` file.
+
+## Bug report
+Bug report is located in the `bug-report.md` file.
