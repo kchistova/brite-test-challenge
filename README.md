@@ -44,8 +44,8 @@ The test suite includes the following scenarios:
 ### Setup and Running IMDb Tests
 1. Clone the repository:
    ```bash
-   git clone [repository-url]
-   cd [repository-name]
+   git clone https://github.com/kchistova/brite-test-challenge.git
+   cd brite-test-challenge
    ```
 
 2. Ensure you have Node.js installed
