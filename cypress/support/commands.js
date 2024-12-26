@@ -1,12 +1,13 @@
 // visit base url
 Cypress.Commands.add('visitHomePage', () => {
-    cy.visit('https://imdb.com')
+    cy.visit(Cypress.config().baseUrl)
 })
 
 // Accept cookies
 Cypress.Commands.add('acceptCookies', () => {
     // accept cookies by clicking button.icb-btn:nth-child(2)
     cy.get('button.icb-btn:nth-child(2)').click();
+    cy.wait(1000);
 })
 
 // search for a keyword

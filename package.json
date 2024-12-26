@@ -4,12 +4,16 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "cy:pokeapi": "cypress run --spec 'cypress/e2e/pokeapi-tests.cy.js'",
+    "cy:imdb:chrome": "cypress run --spec 'cypress/e2e/imdb-tests.cy.js' --browser chrome --headless",
+    "cy:imdb:firefox:nicolas": "cypress run --env grep='nicolas' --spec 'cypress/e2e/imdb-tests.cy.js' --browser firefox"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@cypress/grep": "^4.1.0",
     "cypress": "^13.17.0"
   }
 }

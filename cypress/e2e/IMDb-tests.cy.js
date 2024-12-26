@@ -5,17 +5,21 @@ beforeEach(() => {
   cy.acceptCookies();
 });
 
-
 // Go to IMDb.com, search for Nicolas Cage and access his profile; then unfold the Upcoming tab in the Credits section,
 // and click on the first movie with a Completed tag.
 // TODO: make sure that this scenario is working on Chrome and Firefox.
 describe('Nicolas Cage Profile and Upcoming Movies', () => {
-  it('should navigate to Nicolas Cage profile and access upcoming movies', () => {
+  it('nicolas - should navigate to Nicolas Cage profile and access upcoming movies', { tags: 'nicolas' }, () => {
     cy.get('input[name="q"]').type('Nicolas Cage');
     cy.get('button[type="submit"]').click();
     cy.contains('Nicolas Cage').click();
+
     cy.contains('Upcoming').click();
-    cy.get('#accordion-item-actor-upcoming-projects ul').find('li').filter(':has(:contains("Completed"))').first().click();
+    cy.get('#accordion-item-actor-upcoming-projects ul')
+      .find('li')
+      .filter(':has(:contains("Completed"))')
+      .first()
+      .click();
     cy.get('.ipc-metadata-list__item').contains('Nicolas Cage').should('be.visible');
   });
 });
@@ -30,10 +34,12 @@ describe('Top Box Office Navigation and Rating Test', () => {
     // click on the 2nd item on the Top box office list
     cy.get('.ipc-metadata-list-summary-item').eq(1).find('a').first().click();
     cy.get('[data-testid="hero-rating-bar__aggregate-rating"]').find('a').contains('10').click();
+
     cy.get('button.ipc-btn:nth-child(2)').click();
     cy.get('.ipc-starbar').should('be.visible');
     cy.get('button.ipc-starbar__rating__button:nth-child(5)').click({force: true});
     cy.get('button.ipc-btn--core-accent1').should('be.enabled').click();
+
     cy.get('#signin-options').should('be.visible');
   });
 });
@@ -48,6 +54,7 @@ describe('Top 250 TV Shows Navigation and Photo Display Test', () => {
     cy.contains('Breaking Bad').click();
     cy.contains('Photos').click();
     cy.get('.ipc-icon--grid-view').click();
+
     cy.get('.ipc-chip-dropdown__chip').click();
     // select Danny Trejo from dropdown list and value can not match Danny Trejo
     cy.get('#Person-filter-select-dropdown').find('option')
@@ -56,8 +63,10 @@ describe('Top 250 TV Shows Navigation and Photo Display Test', () => {
         const value = option.val();
         cy.get('#Person-filter-select-dropdown').select(value);
     });
+
     cy.get('[data-testid="filter-menu-chip-nm0001803"]').should('contain', 'Danny Trejo');
     cy.get('.ipc-promptable-base__close > button:nth-child(1)').click();
+
     cy.wait(1000);
     cy.get('.sc-d26c5ca5-0 a').eq(1).should('be.visible').click();
     // Dennys photo should be visible
@@ -94,7 +103,7 @@ describe('Born Today Section Navigation and Search Test', () => {
       .first()
       .click();
     cy.get('[data-testid="hero__pageTitle"]').should('be.visible');
-    cy.screenshot('selebrity-born-yesterday-screenshot');
+    cy.screenshot('celebrity-born-yesterday-screenshot');
   });
 });
 
