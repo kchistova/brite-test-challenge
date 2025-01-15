@@ -15,6 +15,7 @@ describe('Nicolas Cage Profile and Upcoming Movies', () => {
     cy.contains('Nicolas Cage').click();
 
     cy.contains('Upcoming').click();
+    // Note: This test will fail if there is no "upcoming" movies for Nicolas Cage
     cy.get('#accordion-item-actor-upcoming-projects ul')
       .find('li')
       .filter(':has(:contains("Completed"))')

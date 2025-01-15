@@ -52,7 +52,7 @@ The test suite includes the following scenarios:
 
 3. Install Cypress and other dependencies:
    ```bash
-   npm install
+   npm install cypress --save-dev
    ```
 
 4. To open Cypress Test Runner:
@@ -129,7 +129,7 @@ The test suite includes the following scenarios:
 
 2. Install Cypress and other dependencies:
    ```bash
-   npm install
+   npm install cypress --save-dev
    ```
 
 3. To open Cypress Test Runner:
@@ -142,11 +142,10 @@ The test suite includes the following scenarios:
    In Chrome:
    ```bash
    npx cypress run --spec "cypress/e2e/pokeapi-tests.cy.js"
-   npm run cy:pokeapi:chrome
    ```
    or:
    ```bash
-   npm run cy:pokeapi:chrome
+   npm run cy:pokeapi
    ```
 
 ## Manual tests
