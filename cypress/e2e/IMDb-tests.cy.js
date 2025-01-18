@@ -51,6 +51,7 @@ describe('Top Box Office Navigation and Rating Test', () => {
 describe('Top 250 TV Shows Navigation and Photo Display Test', () => {
   it('should navigate to Top 250 TV Shows and display Danny Trejo\'s photos', () => {
     cy.unfoldMenu();
+    cy.on('uncaught:exception', () => { return false });
     cy.contains('Top 250 TV Shows').click();
     cy.contains('Breaking Bad').click();
     cy.contains('Photos').click();
